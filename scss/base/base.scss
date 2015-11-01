@@ -29,12 +29,3 @@ button {
     position: relative;
     z-index: 10;
 }
-
-.bg {
-    width: 100vw; height: 100vh;
-    position: absolute; top: 0; left: 0;
-    background: #f2f2f2; background-size: cover; background-position: center;
-    filter: grayscale(100%);
-    opacity: .25;
-    z-index: 1;
-}

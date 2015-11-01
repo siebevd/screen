@@ -16,7 +16,23 @@
 }
 
 
-@keyframes hoverLine {
-    0%     { width: 0; }
-    100%   { width: 120px; }
+@keyframes introAnimationBg {
+    0%     { opacity: 0; transform: scale(.99); }
+    30%    { opacity: 0; transform: scale(.99); }
+    100%   { opacity: .25; transform: scale(1.05);}
+}
+
+
+@keyframes introAnimationMovie {
+    0%     { opacity: 0; transform: translateY(-10px) scale(.98); }
+    40%    { opacity: 0; transform: translateY(-10px) scale(.98); }
+    100%   { opacity: 1; transform: translateY(0px) scale(1); }
+
+}
+
+@keyframes introAnimationMovieBg {
+    0%     { opacity: 0; transform: translateY(-10px) scale(.98); }
+    50%    { opacity: 0; transform: translateY(-10px) scale(.98);}
+    100%   { opacity: .5; transform: translateY(0px) scale(1);}
+
 }

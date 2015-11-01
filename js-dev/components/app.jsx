@@ -1,4 +1,5 @@
 var React = require("react");
+var ReactCSSTransitionGroup = require('react-addons-css-transition-group');
 
 var moviesActions = require('../actions/movies.actions.js');
 var movieStore = require("../stores/movie.store.js");
@@ -38,7 +39,9 @@ var App = React.createClass({
                         <div className="switch__shadow"></div>
                     </div>
                 </div>
-                <div className="bg" style={bgStyle}/>
+                <ReactCSSTransitionGroup transitionName="bg" transitionEnterTimeout={700} transitionLeaveTimeout={700} >
+                    <div className="bg" key={'bg-'+movie.id} style={bgStyle}/>
+                </ReactCSSTransitionGroup>
             </div>
         );
     },
