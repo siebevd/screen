@@ -40,8 +40,6 @@ function removeMovie(movieID) {
         }
     }
 
-    console.log(_movies.length);
-
 }
 
 function handleMovieData(movie) {

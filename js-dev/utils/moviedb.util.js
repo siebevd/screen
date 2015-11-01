@@ -12,12 +12,9 @@ moviedb.getMovies = function(callback) {
         startYear = endYear - 25,
         pageNr = Math.floor(Math.random() * 30 ) + 1;
 
-    console.log('getting new movies between:' + startYear + '-' + endYear + ', pagenr:' + pageNr);
 
     request.get(config.mdbApiUrl + 'discover/movie?sort_by=vote_count.desc&language=en&page=' + pageNr + '&release_date.gte=' + startYear + '-01-01&release_date.lte='+endYear+'-01-01&api_key='+config.mdbApiKey)
            .end(function(err, res) {
-               console.log(err);
-              // console.log(res.body.results);
 
               if (err) {
                 // TODO: deal with Error
@@ -32,7 +29,6 @@ moviedb.getMovies = function(callback) {
 moviedb.getMovieDetails = function(movieID, callback) {
     request.get(config.mdbApiUrl + 'movie/' + movieID + '?api_key='+config.mdbApiKey)
            .end(function(err, res) {
-              // console.log(res.body.results);
 
               if (err) {
                 // TODO: deal with Error
