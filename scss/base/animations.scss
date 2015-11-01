@@ -17,8 +17,8 @@
 
 
 @keyframes introAnimationBg {
-    0%     { opacity: 0; transform: scale(.99); }
-    30%    { opacity: 0; transform: scale(.99); }
+    0%     { opacity: 0; transform: scale(1); }
+    30%    { opacity: 0; transform: scale(1); }
     100%   { opacity: .25; transform: scale(1.05);}
 }
 

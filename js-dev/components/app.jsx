@@ -39,7 +39,7 @@ var App = React.createClass({
                         <div className="switch__shadow"></div>
                     </div>
                 </div>
-                <ReactCSSTransitionGroup transitionName="bg" transitionEnterTimeout={700} transitionLeaveTimeout={700} >
+                <ReactCSSTransitionGroup transitionName="bg" transitionEnterTimeout={500} transitionLeaveTimeout={500} >
                     <div className="bg" key={'bg-'+movie.id} style={bgStyle}/>
                 </ReactCSSTransitionGroup>
             </div>
