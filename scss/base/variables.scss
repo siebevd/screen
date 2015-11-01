@@ -8,8 +8,10 @@
  /* Colors
  -----------------------*/
 
-$color-black: #0c0c0c;
-$color-grey: #222222;
+$color-black        : #232323;
+$color-grey         : #222222;
+$color-red          : #ef3434;
+$color-lightBlue    : #3be5d3;
 
 $color-darkDivider: rgba(255, 255, 255, .2);
 
@@ -18,7 +20,7 @@ $color-darkDivider: rgba(255, 255, 255, .2);
 /* Fonts
 -----------------------*/
 
-$fontFamily-base: 'Relative', arial, sans-serif;
+$fontFamily-base: 'Lato', arial, sans-serif;
 
 $fontSize-small: 12px;
 $fontSize-regular: 14px;

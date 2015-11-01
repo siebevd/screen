@@ -1,11 +1,12 @@
 var React = require('react'),
-    ReactApp = require('components/app');
+    ReactDOM = require('react-dom'),
+    ReactApp = require('./components/app.jsx');
 
 
 /*
  * Start up the app
  */
-React.render(
+ReactDOM.render(
     React.createElement(ReactApp),
-    document.getElementById('content')
+    document.getElementById('app')
 );

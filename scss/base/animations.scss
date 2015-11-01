@@ -3,3 +3,14 @@
  * Animation
  *
  */
+
+@keyframes introAnimation {
+    0% { letter-spacing: 0px; opacity: 0; }
+    50% { opacity: 1; }
+    100% { letter-spacing: 14px; opacity: 1;}
+}
+
+@keyframes introAnimationLine {
+    0% { width: 0; }
+    100% { width: 110%; }
+}
