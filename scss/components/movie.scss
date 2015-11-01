@@ -3,3 +3,20 @@
  * Movie Component
  *
  */
+
+
+.movie {
+    width: 690px; height: 360px;
+    position: absolute; top: 0; right: 0; bottom: 0; left: 0;
+    background: #fff;
+    margin: auto;
+}
+
+.movie-shadow {
+    width: 650px; height: 320px;
+    position: absolute; top: 50px; right: 0; bottom: 0; left: 0;
+    background: #000;
+    margin: auto;
+    filter: blur(30px);
+    opacity: .5;
+}

@@ -8,7 +8,8 @@ var MoviePanel = require("./movie/movie.panel.jsx");
 var App = React.createClass({
     getInitialState: function() {
         return {
-            movie: movieStore.getRandomMovie()
+            movie: movieStore.getCurrentMovie(),
+            shownMovies: movieStore.getShownMovies()
         };
     },
 
@@ -16,10 +17,9 @@ var App = React.createClass({
         var bgStyle = {},
             movie = this.state.movie;
 
-        if (typeof movie === 'undefined') {
+        if (movie === null) {
             return <div></div>;
         }
-
 
         bgStyle = {
             backgroundImage: 'url("' + movie.backdrop + '")'
@@ -33,17 +33,23 @@ var App = React.createClass({
                         <h1 className="header__title">Screens</h1>
                     </div>
                     <MoviePanel movie={movie}/>
+                    <div className="switch">
+                        <button className="switch__btn" onClick={this.nextMovie}>Nah, give me something else</button>
+                        <div className="switch__shadow"></div>
+                    </div>
                 </div>
                 <div className="bg" style={bgStyle}/>
             </div>
         );
     },
 
+    /* Lifecycle
+    ------------------------*/
+
     componentWillMount: function() {
-
         moviesActions.getMovies();
-
     },
+
     // Listen for changes
     componentDidMount: function() {
         movieStore.addChangeListener(this.updateState);
@@ -54,9 +60,29 @@ var App = React.createClass({
         movieStore.removeChangeListener(this.updateState);
     },
 
+    /* Interactions
+    ------------------------*/
+
+    nextMovie: function(ev) {
+        // refresh the movies after 5 movies to keep things fresh
+        if (this.state.shownMovies >= 5) {
+            console.log('get new movies');
+            moviesActions.getMovies();
+            return;
+        }
+        moviesActions.getNextMovie(movieStore.getRandomMovieID());
+    },
+
+
+    /* Data Handlers
+    ------------------------*/
+
     updateState: function() {
-        console.log('store has been updated');
-        this.setState({movie: movieStore.getRandomMovie()});
+
+        this.setState({
+            movie: movieStore.getCurrentMovie(),
+            shownMovies: movieStore.getShownMovies()
+        });
     }
 
 

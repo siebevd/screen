@@ -5,28 +5,22 @@ var assign = require('object-assign');
 
 
 var _movies = [],
-    _baseImgUrl = 'http://image.tmdb.org/t/p/'; // TODO: change this with /configuration api call
+    _baseImgUrl = 'http://image.tmdb.org/t/p/',
+    _shownMovies = 0,
+    _currentMovie = null; // TODO: change this with /configuration api call
 
 
-function _getRandomMovie() {
-    // TODO: fix this upp
-    return _movies[Math.floor(Math.random()*_movies.length)];
+function _getRandomMovieID() {
+    // TODO: fix this up
+    return _movies[Math.floor(Math.random()*_movies.length)].id;
 };
 
-function handleMovieData(movies) {
+function handleMovieData(movie) {
 
-    var handledMovies = [];
+    movie.backdrop = _baseImgUrl + 'original' + movie.backdrop_path;
+    movie.poster = _baseImgUrl + 'original' + movie.poster_path;
 
-    for ( var i = 0, l = movies.length; i < l; i ++ ) {
-        var movie = movies[i];
-
-        movie.backdrop = _baseImgUrl + 'original' + movie.backdrop_path;
-        movie.poster = _baseImgUrl + 'original' + movie.poster_path;
-
-        handledMovies.push(movie);
-    }
-
-    return handledMovies;
+    return movie;
 
 }
 
@@ -54,11 +48,20 @@ movieStore.dispatcherIndex = dispatcher.register(function(payload) {
 
   switch(payload.type) {
     case actions.MOVIES_UPDATED:
-        _movies = handleMovieData(payload.movies);
+
+        _movies = payload.movies;
+        _shownMovies = 0;
 
         movieStore.emitChange();
-      break;
+        break;
 
+    case actions.MOVIE_DETAILS_UPDATED:
+
+        _currentMovie = handleMovieData(payload.movie);
+        _shownMovies ++;
+
+        movieStore.emitChange();
+        break;
     default:
       return true;
   }
@@ -72,10 +75,23 @@ movieStore.dispatcherIndex = dispatcher.register(function(payload) {
 /* Getters
 ---------------------*/
 
-movieStore.getRandomMovie = function() {
+movieStore.getRandomMovieID = function() {
 
-    return _getRandomMovie();
+    return _getRandomMovieID();
 
 };
+
+movieStore.getShownMovies = function() {
+
+    return _shownMovies;
+
+};
+
+movieStore.getCurrentMovie = function() {
+
+
+    return _currentMovie;
+
+}
 
 module.exports = movieStore;
