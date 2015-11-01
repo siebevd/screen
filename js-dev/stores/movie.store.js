@@ -7,13 +7,42 @@ var assign = require('object-assign');
 var _movies = [],
     _baseImgUrl = 'http://image.tmdb.org/t/p/',
     _shownMovies = 0,
+    _shownMoviesTotal = [],
     _currentMovie = null; // TODO: change this with /configuration api call
 
 
 function _getRandomMovieID() {
-    // TODO: fix this up
-    return _movies[Math.floor(Math.random()*_movies.length)].id;
+    // TODO: add in id in array and check if we have already seen the movie or not?
+
+    var movieID = _movies[Math.floor(Math.random()*_movies.length)].id;
+
+    if (_shownMoviesTotal.indexOf(movieID) !== -1) {
+        // TODO: pick another movie number
+        removeMovie(movieID);
+        // This is just a quick dirty hack. Doesn't ensure the issue won't come up again
+        // But makes changes smaller for now
+        movieID = _movies[Math.floor(Math.random()*_movies.length)].id;
+    }
+
+
+    _shownMoviesTotal.push(movieID);
+
+    return movieID;
 };
+
+function removeMovie(movieID) {
+
+    for (var i = 0, l = _movies.length; i < l; i ++ ) {
+
+        if (_movies[i].id === movieID) {
+            _movies.splice(i, 1);
+            break;
+        }
+    }
+
+    console.log(_movies.length);
+
+}
 
 function handleMovieData(movie) {
 

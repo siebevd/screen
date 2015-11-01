@@ -12,6 +12,13 @@ body {
     font-family: $fontFamily-base; color: $color-black;
 }
 
+button {
+    outline: none;
+    cursor: pointer;
+}
+
+* { letter-spacing: .1px; }
+
 .app {
     width: 100%; height: 100%;
     background: #f2f2f2;

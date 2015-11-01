@@ -1,8 +1,12 @@
 /*
  *
- * Header
+ * App
  *
  */
+
+
+/* Header
+-----------------------*/
 
 .header {
     width: 100%;
@@ -28,4 +32,34 @@
         display: block;
         animation: introAnimationLine .7s forwards; animation-delay: 1.5s;
     }
+}
+
+
+
+/* Switch Btn
+-----------------------*/
+.switch {
+    width: 100%;
+    position: absolute; bottom: 40px; left: 0;
+    text-align: center;
+}
+
+.switch__btn {
+    width: 230px;
+    background: $color-red;
+    display: inline-block;
+    color: #fff; font-size: 14px; font-family: $fontFamily-base;
+    padding: 14px 0;
+    border: 0px;
+}
+
+.switch__shadow {
+    width: 230px; height: 40px;
+    position: absolute; top: 12px; left: 50%;
+    z-index: -1;
+    opacity: .5;
+    margin-left: -115px;
+    background: $color-red;
+    filter: blur(8px); //Using filter instead of a regular box-shadow, gives a cooler glow
+    // TODO: instead of using 2 elements give the bg to before, & the shadow to after
 }

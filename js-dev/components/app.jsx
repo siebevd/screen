@@ -66,7 +66,6 @@ var App = React.createClass({
     nextMovie: function(ev) {
         // refresh the movies after 5 movies to keep things fresh
         if (this.state.shownMovies >= 5) {
-            console.log('get new movies');
             moviesActions.getMovies();
             return;
         }
