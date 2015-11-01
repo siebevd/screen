@@ -10,9 +10,15 @@
     position: absolute; top: 0; right: 70px; bottom: 0; left: 0;
     background: #fff;
     margin: auto;
-    padding: 55px 150px 20px 50px;
     box-sizing: border-box;
     animation: introAnimationMovie 2.4s forwards;
+}
+
+.movie__content {
+    width: 100%; height: 100%;
+    position: absolute; top: 0px; left: 0px;
+    padding: 55px 150px 20px 50px;
+    box-sizing: border-box;
 }
 
 .movie-shadow {
@@ -87,27 +93,26 @@
     position: absolute; top: 45px; right: -140px;
     background: $color-grey; background-size: cover; background-position: center;
     box-shadow: 1px 10px 30px 1px rgba(0,0,0,.2);
-
 }
 
-.movie__img-enter {
+.movie__content-enter {
     opacity: 0.01;
     z-index: 10;
 }
 
-.movie__img-enter.movie__img-enter-active {
+.movie__content-enter.movie__content-enter-active {
     opacity: 1;
     z-index: 10;
-    transition: all 600ms ease-in;
+    transition: all 800ms ease-in; transition-delay: .1s;
 }
 
-.movie__img-leave {
+.movie__content-leave {
     opacity: 1;
     z-index: 1;
 }
 
-.movie__img-leave.movie__img-leave-active {
-    opacity: 0.01 ;
-    transition: all 300ms ease-in;
+.movie__content-leave.movie__content-leave-active {
+    opacity: 0.01;
+    transition: all 500ms ease-in;
     z-index: 1;
 }

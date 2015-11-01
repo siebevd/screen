@@ -15,6 +15,12 @@
     100%   { width: 110%; }
 }
 
+@keyframes introAnimationSubtitle {
+    0%     { opacity: 0; letter-spacing: -2px; }
+    50%    { opacity: 0; letter-spacing: -2px; }
+    100%   { opacity: .2; letter-spacing: 1px; }
+}
+
 
 @keyframes introAnimationBg {
     0%     { opacity: 0; transform: scale(1); }

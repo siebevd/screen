@@ -32,8 +32,10 @@ var App = React.createClass({
                 <div className="basic">
                     <div className="header">
                         <h1 className="header__title">Screens</h1>
+                        <h2 className="header__sub-title">what are you watching tonight?</h2>
                     </div>
-                    <MoviePanel movie={movie}/>
+                        <MoviePanel movie={movie}/>
+
                     <div className="switch">
                         <button className="switch__btn" onClick={this.nextMovie}>Nah, give me something else</button>
                         <div className="switch__shadow"></div>

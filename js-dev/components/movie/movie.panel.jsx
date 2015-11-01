@@ -36,18 +36,20 @@ var MoviePanel = React.createClass({
             <div>
                 <div className="movie-shadow" />
                 <div className="movie">
-                    <h2 className="movie__title">{movie.title}</h2>
-                    <ul>
-                        <li className="movie__info">{genres}</li>
-                        <li className="movie__info">{year}</li>
-                        <li className="movie__info">{movie.runtime} min</li>
-                        <li className="movie__info">{movie.vote_average}/10</li>
-                    </ul>
+                    <ReactCSSTransitionGroup transitionName="movie__content" transitionEnterTimeout={900} transitionLeaveTimeout={500} >
+                        <div key={'movie__content' + movie.id} className="movie__content">
+                            <h2 className="movie__title">{movie.title}</h2>
+                            <ul>
+                                <li className="movie__info">{genres}</li>
+                                <li className="movie__info">{year}</li>
+                                <li className="movie__info">{movie.runtime} min</li>
+                                <li className="movie__info">{movie.vote_average}/10</li>
+                            </ul>
 
-                    <div className="movie__description">{description}</div>
-                    <a href={imdbLink} target="_blank" className="movie__link">view on IMDB</a>
-                    <ReactCSSTransitionGroup transitionName="movie__img" transitionEnterTimeout={700} transitionLeaveTimeout={400} >
-                        <div className="movie__img" key={'movie-img-' + movie.id}  style={imgStyle} />
+                            <div className="movie__description">{description}</div>
+                            <a href={imdbLink} target="_blank" className="movie__link">view on IMDB</a>
+                            <div className="movie__img" key={'movie-img-' + movie.id}  style={imgStyle} />
+                        </div>
                     </ReactCSSTransitionGroup>
                 </div>
             </div>

@@ -34,6 +34,13 @@
     }
 }
 
+.header__sub-title {
+    padding-top: 40px;
+    text-transform: uppercase; font-weight: 700;
+    opacity: .3;
+    animation: introAnimationSubtitle 2s forwards;
+}
+
 /* Switch Btn
 -----------------------*/
 .bg {
