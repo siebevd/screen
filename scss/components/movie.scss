@@ -1,8 +1,8 @@
 /*
- *
- * Movie Component
- *
- */
+*
+* Movie Component
+*
+*/
 
 
 .movie {
@@ -87,4 +87,27 @@
     position: absolute; top: 45px; right: -140px;
     background: $color-grey; background-size: cover; background-position: center;
     box-shadow: 1px 10px 30px 1px rgba(0,0,0,.2);
+
+}
+
+.movie__img-enter {
+    opacity: 0.01;
+    z-index: 10;
+}
+
+.movie__img-enter.movie__img-enter-active {
+    opacity: 1;
+    z-index: 10;
+    transition: all 600ms ease-in;
+}
+
+.movie__img-leave {
+    opacity: 1;
+    z-index: 1;
+}
+
+.movie__img-leave.movie__img-leave-active {
+    opacity: 0.01 ;
+    transition: all 300ms ease-in;
+    z-index: 1;
 }

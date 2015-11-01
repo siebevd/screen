@@ -85,7 +85,15 @@
     color: #fff; font-size: 14px; font-family: $fontFamily-base;
     padding: 14px 0;
     border: 0px;
+    transition: all 500ms;
+    animation: introAnimationButton 2s;
+
+    &:hover {
+        background: darken($color-red, 10%);
+    }
 }
+
+
 
 .switch__shadow {
     width: 230px; height: 40px;
@@ -94,6 +102,7 @@
     opacity: .5;
     margin-left: -115px;
     background: $color-red;
+    animation: introAnimationButtonShadow 2s;
     filter: blur(8px); //Using filter instead of a regular box-shadow, gives a cooler glow
     // TODO: instead of using 2 elements give the bg to before, & the shadow to after
 }

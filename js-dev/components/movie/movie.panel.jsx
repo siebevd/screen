@@ -1,4 +1,5 @@
 var React = require("react");
+var ReactCSSTransitionGroup = require('react-addons-css-transition-group');
 
 
 var MoviePanel = React.createClass({
@@ -45,7 +46,9 @@ var MoviePanel = React.createClass({
 
                     <div className="movie__description">{description}</div>
                     <a href={imdbLink} target="_blank" className="movie__link">view on IMDB</a>
-                    <div className="movie__img" style={imgStyle}></div>
+                    <ReactCSSTransitionGroup transitionName="movie__img" transitionEnterTimeout={700} transitionLeaveTimeout={400} >
+                        <div className="movie__img" key={'movie-img-' + movie.id}  style={imgStyle} />
+                    </ReactCSSTransitionGroup>
                 </div>
             </div>
         );

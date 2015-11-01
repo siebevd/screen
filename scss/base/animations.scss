@@ -36,3 +36,15 @@
     100%   { opacity: .5; transform: translateY(0px) scale(1);}
 
 }
+
+@keyframes introAnimationButton{
+    0%     { opacity: 0; }
+    60%    { opacity: 0; }
+    100%   { opacity: 1; }
+}
+
+@keyframes introAnimationButtonShadow{
+    0%     { opacity: 0; }
+    60%    { opacity: 0; }
+    100%   { opacity: .5; }
+}
