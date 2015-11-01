@@ -9,6 +9,7 @@ var MoviePanel = React.createClass({
             year = movie.release_date.split('-')[0],
             imdbLink = 'http://www.imdb.com/title/' + movie.imdb_id,
             description = movie.overview,
+            imgStyle = { backgroundImage: "url('" + movie.poster + "')" },
             genres = '';
 
         // TODO: decode &amp; charachters and stuff in the api
@@ -29,6 +30,7 @@ var MoviePanel = React.createClass({
             description += '...';
         }
 
+
         return (
             <div>
                 <div className="movie-shadow" />
@@ -43,6 +45,7 @@ var MoviePanel = React.createClass({
 
                     <div className="movie__description">{description}</div>
                     <a href={imdbLink} target="_blank" className="movie__link">view on IMDB</a>
+                    <div className="movie__img" style={imgStyle}></div>
                 </div>
             </div>
         );
